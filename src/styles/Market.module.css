@@ -1,3 +1,27 @@
 .container {
     padding: 0 2rem;
 }
+
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.contentContainer {
+    width: 100%;
+}
+
+.row {
+
+}
+
+.rowContent {
+
+}
+
+.cryptoIcon {
+    width: 3rem;
+    height: 3rem;
+    filter: sepia(100%);
+}
