@@ -18,15 +18,13 @@ const Market = () => {
         <h2>Harga Crypto dalam Rupiah Hari Ini</h2>
       </div>
 
-      <div/>
-
       <table className={styles.contentContainer}>
         <thead>
-        <tr>
+        <tr className={styles.tableHeader}>
           <th scope="col"></th>
-          <th scope="col">CRYPTO</th>
+          <th className={styles.cryptoName} scope="col">CRYPTO</th>
           <th scope="col"></th>
-          <th scope="col">HARGA</th>
+          <th className={styles.priceValueCol} scope="col">HARGA</th>
           <th scope="col">24 JAM</th>
           <th scope="col">1 MGG</th>
           <th scope="col">1 BLN</th>
@@ -43,14 +41,12 @@ const Market = () => {
           const isMonthBelowZero = monthChangeValue < 0
           const yearChangeValue = priceData[item]?.year || 0;
           const isYearBelowZero = yearChangeValue < 0
-
-
           return (
             <tr className={styles.row} key={item}>
-              <td><SVG uniquifyIDs={true} cacheRequests={true} src={data[item].logo} width={30} height={30} preProcessor={(code) => code.replace(/fill="currentColor"/g, `fill="${data[item].color}"`)}></SVG></td>
-              <td><p>{data[item].name}</p></td>
-              <td><p>{data[item].currencySymbol}</p></td>
-              <td>
+              <td className={styles.cryptoIconContainer}><SVG uniquifyIDs={true} cacheRequests={true} src={data[item].logo} width={30} height={30} preProcessor={(code) => code.replace(/fill="currentColor"/g, `fill="${data[item].color}"`)}></SVG></td>
+              <td><text>{data[item].name}</text></td>
+              <td><text>{data[item].currencySymbol}</text></td>
+              <td className={styles.priceValueCol}>
                 <NumericFormat
                   displayType="text"
                   thousandSeparator={'.'}
@@ -58,15 +54,15 @@ const Market = () => {
                   thousandsGroupStyle={'thousand'}
                   value={priceData?.[item]?.latestPrice || 0}
                   renderText={value => (
-                    <p>{value}</p>
+                    <text>{value}</text>
                   )}
                   prefix="Rp"
                 />
               </td>
-              <td><p style={{color: isDayBelowZero ? '#ff4b4b' : '#53da53'}}>{dayChangeValue}%</p></td>
-              <td><p style={{color: isWeekBelowZero ? '#ff4b4b' : '#53da53'}}>{weekChangeValue}%</p></td>
-              <td><p style={{color: isMonthBelowZero ? '#ff4b4b' : '#53da53'}}>{monthChangeValue}%</p></td>
-              <td><p style={{color: isYearBelowZero ? '#ff4b4b' : '#53da53'}}>{yearChangeValue}%</p></td>
+              <td className={styles.priceChangeCol}><text style={{color: isDayBelowZero ? '#ff4b4b' : '#53da53'}}>{dayChangeValue}%</text></td>
+              <td className={styles.priceChangeCol}><text style={{color: isWeekBelowZero ? '#ff4b4b' : '#53da53'}}>{weekChangeValue}%</text></td>
+              <td className={styles.priceChangeCol}><text style={{color: isMonthBelowZero ? '#ff4b4b' : '#53da53'}}>{monthChangeValue}%</text></td>
+              <td className={styles.priceChangeCol}><text style={{color: isYearBelowZero ? '#ff4b4b' : '#53da53'}}>{yearChangeValue}%</text></td>
             </tr>
           )
         })}

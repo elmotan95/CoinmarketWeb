@@ -12,12 +12,42 @@
     width: 100%;
 }
 
-.row {
-
+table.contentContainer {
+    border: 1px solid gray;
+    border-radius: 6px;
 }
 
-.rowContent {
+tr.row td {
+    padding-top: 10px;
+    padding-bottom:10px;
+    border-top: 1px solid gray;
+}
 
+tr.tableHeader th {
+    padding-top: 10px;
+    padding-bottom:10px;
+}
+
+th.cryptoName {
+    text-align: left;
+}
+
+th.priceValueCol {
+    text-align: right;
+}
+
+td.priceValueCol {
+    text-align: right;
+}
+
+td.cryptoIconContainer {
+    text-align: center;
+    vertical-align: middle;
+}
+
+td.priceChangeCol {
+    text-align: center;
+    vertical-align: middle;
 }
 
 .cryptoIcon {
